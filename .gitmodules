@@ -1,0 +1,6 @@
+[submodule "HW3"]
+	path = HW3
+	url = ./HW3
+[submodule "HW1"]
+	path = HW1
+	url = ./HW1
