@@ -10,4 +10,4 @@ export const routes: Routes = [
     path: 'user', component: UserComponent
   },
   {path: '', redirectTo: '/index', pathMatch: 'full'}
-]
+];
