@@ -1,0 +1,21 @@
+<h2>User profile</h2>
+<div *ngFor="let user of users">
+  <label>Name:
+    <input [(ngModel)]="user.name"/>
+  </label>&nbsp;
+  <label>Location:
+    <input [(ngModel)]="user.location"/>
+  </label>
+
+</div>
+<h3>Add new User</h3>
+<div>
+  <label>Name: <input [(ngModel)]="newUser.name"/>&nbsp;
+  </label>
+  <label>Location: <input [(ngModel)]="newUser.location"/>
+  </label>
+
+
+  <br>
+  <button (click)="addUser()">Add</button>
+</div>
