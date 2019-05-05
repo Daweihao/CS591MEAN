@@ -1,0 +1,22 @@
+{
+  "name": "hw3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "cors": "^2.8.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0",
+    "express-session": "^1.16.1",
+    "mongodb": "^3.2.3"
+  }
+}
