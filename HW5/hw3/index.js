@@ -26,16 +26,17 @@ router.get('/:name', function(req, res, next) {
   const loc= req.params['name'];
   console.log(loc);
   const url = "http://api.openweathermap.org/data/2.5/weather?q="+ loc+ "&APPID=f5e514b6004f80bff3f022eeab5b3137" ;
-
   request(url, function(err, response, body) {
-    if (!err && response.statusCode == 200) {
-      // const drink = JSON.parse(body);
-      let temp = response.main.temp * 9/5 - 459.67;
+    if (!err && response.statusCode === 200) {
+      // const drink = JSON.parse(body)
+      const data = JSON.parse(body);
+
+      let temp = data.main.temp * 9/5 - 459.67;
       const weather = {
-        weather: response.weather[0].main,
-        low_temp : (response.main.temp_min * 9/5 - 459.67).toFixed(2),
-        high_temp: (response.main.temp_max * 9/5 - 459.67).toFixed(2),
-        temp : temp
+        forecast: data.weather[0].main,
+        lowtemp : (data.main.temp_min * 9/5 - 459.67).toFixed(2),
+        hightemp: (data.main.temp_max * 9/5 - 459.67).toFixed(2),
+        temp : temp.toFixed(2)
       };
 
       res.send(weather);

@@ -3,13 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-let mongoUtil = require('mongoUtil');
+let mongoUtil = require('./mongoUtil');
 const cors = require('cors');
 const passport = require('passport');
 
 var indexRouter = require('./hw3/index');
-let authRouter = require('./auth');
-
+let authRouter = require('./hw3/authRoute');
+require('./auth');
 var app = express();
 
 // view engine setup
