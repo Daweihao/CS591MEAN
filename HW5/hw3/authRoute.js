@@ -8,7 +8,7 @@ router.get('/google',passport.authenticate('google',{
 }));
 
 router.get('/google/callback', passport.authenticate('google', {successRedirect: 'http://localhost:4200/user',
-    failureRedirect: "http://localhost:4200/home"}));
+    failureRedirect: "http://localhost:4200/home", session: false}));
 
 // function handleRedirect(req, url) {
 //     const request

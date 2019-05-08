@@ -1,14 +1,21 @@
-Users = function(app, mongo) {
+const mongoose = require('mongoose');
 
-    Users.prototype.addUser = function() {
-        console.log("add user");
-    };
+const userSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    location: {
+        type: String,
+        required: false
+    }
+});
 
-    Users.prototype.getAll = function() {
+mongoose.model('user', userSchema,'users');
 
-        return "all users " + mongo.dbUsers;
+const User = mongoose.model('user');
 
-    };
-};
-
-module.exports = Users;

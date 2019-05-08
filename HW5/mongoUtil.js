@@ -7,7 +7,7 @@ module.exports = {
 
     connectToServer: function( callback ) {
         MongoClient.connect( url,  { useNewUrlParser: true }, function( err, client ) {
-            _db  = client.db('test_db');
+            _db  = client.db('meanAuth');
             return callback( err );
         } );
     },

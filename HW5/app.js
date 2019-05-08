@@ -2,14 +2,23 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+let cookieSession = require('cookie-session');
 var logger = require('morgan');
-let mongoUtil = require('./mongoUtil');
+// let mongoUtil = require('./mongoUtil');
 const cors = require('cors');
 const passport = require('passport');
 
+require('./model/db');
+// require('./model/user');
+require('./auth');
+
+// mongoose.Promise = global.Promise;
+// mongoose.connect("mongodb://localhost:27017/meanAuth");
+
 var indexRouter = require('./hw3/index');
 let authRouter = require('./hw3/authRoute');
-require('./auth');
+let userRouter = require('./routes/users');
+
 var app = express();
 
 // view engine setup
@@ -28,12 +37,13 @@ app.use(passport.session());
 app.use('/auth', authRouter);
 app.use(cors());
 app.use('/hw4', indexRouter);
+app.use('/user', userRouter);
 
 // initialize Mongodb server, and create connection
-mongoUtil.connectToServer(function (err, client) {
-  if (err) console.log(err);
-  // TODO: start the rest of app here
-});
+// mongoUtil.connectToServer(function (err, client) {
+//   if (err) console.log(err);
+//   // TODO: start the rest of app here
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

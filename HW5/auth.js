@@ -1,9 +1,10 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 let passport = require('passport');
 const google = require('./config/AuthTogether').google;
-// const mongod = require('mongoUtil');
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
 // db = mongod.getDb();
-// db.collection('users').find();
+// db.collection('meanAuth').find();
 // const User =
 // Configure Google Strategy by using passport
 passport.use(new GoogleStrategy(
@@ -15,10 +16,14 @@ passport.use(new GoogleStrategy(
         // be associated with a user record in the application's database, which
         // allows for account linking and authentication with other identity
         // providers.
-        // const existingUser = await User.findOne({googleId: profile.id});
-        // if (existingUser)
-        //     return cb(null, existingUser);
-        // const user = await new User({ googleId: profile.id }).save();
+        const existingUser = await User.findOne({email: profile.emails[0].value});
+        if (existingUser)
+            return cb(null, existingUser);
+        const user = await new User({  name: profile.displayName, email: profile.emails[0].value }).save();
+        console.log(user);
+
+        // id  displayName emails[0].value
+
         return cb(null, profile);
     }));
 
@@ -33,11 +38,14 @@ passport.use(new GoogleStrategy(
 // and deserialized.
 
 passport.serializeUser(function(user, cb) {
+    console.log(user);
     cb(null, user);
 });
 
 passport.deserializeUser(function(obj, cb) {
     // TODO: look up user in the mongodb and place one the 'user' information
-    cb(null, obj);
+    User.findById(obj).then(user => {
+        cb(null, user);
+    });
 });
 

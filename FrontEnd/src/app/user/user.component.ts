@@ -12,7 +12,8 @@ export class UserComponent implements OnInit {
   users: User[] = USERS;
   newUser: User = {
     name: '',
-    location: ''
+    location: '',
+    email: ''
   };
 
   constructor() { }
@@ -23,7 +24,8 @@ export class UserComponent implements OnInit {
     this.users.push(this.newUser);
     this.newUser = {
       name: '',
-      location: ''
+      location: '',
+      email: ''
     };
   }
 

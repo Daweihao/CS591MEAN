@@ -1,4 +1,7 @@
 export class User {
- name: string;
- location: string;
+  email: string;
+  // tslint:disable-next-line:variable-name
+  // _id: string;
+  name: string;
+  location: string;
 }
