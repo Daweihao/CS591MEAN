@@ -1,16 +1,18 @@
 #README
 
-This is homework 4 repo.  We deployed Angular 2 as our frontend. 
+This is homework 5 repo.  I use Angular 2 as frontend, express as backend server.
 
-HW4 is partially based on the modifed version of HW3.
+HW5 is partially based on the modifed version of HW3.
 
-And I add HW3 as the submodule in my Repo. So Frontend is in this repo and backend repo is in my HW3 repo. 
+I used Google oauth as my authentication.
 
-Please click this link below
+FrontEnd: http://localhost:4200
 
- https://github.com/Daweihao/HW3
+Backend: http://localhost:3000
 
-Backend: Express server can be accessed on url : localhost:3000/hw4
+Several APIs built for front end: 
+
+
 
 RouterModule is used for routing to different pages. It is written in app-routing.module.ts.
 

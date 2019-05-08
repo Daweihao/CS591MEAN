@@ -23,9 +23,9 @@ export class AddUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('_id');
-    this.weatherService.getUser(id)
-      .subscribe(user => this.user = user);
+    // const id = +this.route.snapshot.paramMap.get('_id');
+    // this.weatherService.getUser(id)
+    //   .subscribe(user => this.user = user);
   }
 
   update(): void {
