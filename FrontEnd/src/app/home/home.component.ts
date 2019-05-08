@@ -11,11 +11,11 @@ export class HomeComponent implements OnInit {
   area = 'boston';
   weather: Weather;
 
-  constructor(private weatherServce: WeatherService) { }
+  constructor(private weatherService: WeatherService) { }
 
 
   ngOnInit() {
-    this.weatherServce.getWeather(this.area).subscribe(weather => this.weather = weather);
+    this.weatherService.getWeather(this.area).subscribe(weather => this.weather = weather);
   }
 
 }

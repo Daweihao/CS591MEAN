@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {USERS} from '../users';
 import {User} from '../user';
+import {WeatherService} from '../weather.service';
 
 @Component({
   selector: 'app-user',
@@ -9,24 +9,21 @@ import {User} from '../user';
 })
 export class UserComponent implements OnInit {
 
-  users: User[] = USERS;
-  newUser: User = {
-    name: '',
-    location: '',
-    email: ''
-  };
+  users: User[];
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
-  }
-  addUser() {
-    this.users.push(this.newUser);
-    this.newUser = {
-      name: '',
-      location: '',
-      email: ''
-    };
+    this.getUsers();
   }
 
+
+  private getUsers() {
+    return this.weatherService.getUsers().subscribe(
+      users => {
+        console.log(users);
+        this.users = users;
+      }
+    );
+  }
 }

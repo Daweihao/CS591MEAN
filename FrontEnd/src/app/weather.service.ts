@@ -12,11 +12,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class WeatherService {
-  usersUrl = 'api/user';
+  usersUrl = 'http://localhost:3000/user/';
   constructor(private http: HttpClient) {
   }
-  // URL = 'http://localhost:3000/hw4/';
-  URL = '/api/hw4/';
+  URL = 'http://localhost:3000/hw4/';
+  // URL = '/api/hw4/';
   getWeather(name: string): Observable<Weather> {
     // console.log(this.http.get<Cocktail>(this.URL + name));
     return this.http.get<Weather>(this.URL + name);
